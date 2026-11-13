@@ -2,6 +2,8 @@
 
 A responsive landing page for **Luma**, a fictional online learning platform, built from the _Buzzvel FE Test 2026_ Figma design with **Next.js (App Router)**, **TypeScript** and **Tailwind CSS**.
 
+**Live preview:** https://buzzvel-fe-test-2026-ten.vercel.app
+
 All ten sections from the desktop and mobile designs are implemented: Header, Hero, Categories, Featured Course, How it works, Testimonial, The People, Contact, Final CTA and Footer.
 
 | Lighthouse — mobile | Lighthouse — desktop |
@@ -28,7 +30,7 @@ Before running the end-to-end tests for the first time, install the browser once
 npx playwright install chromium
 ```
 
-Optional: set `NEXT_PUBLIC_SITE_URL` (for example `https://luma.example.com`) so Open Graph image URLs resolve to the deployed domain. It defaults to `http://localhost:3000`.
+No environment variables are required. Open Graph image URLs use `NEXT_PUBLIC_SITE_URL` when it is set, then the Vercel production domain, and `http://localhost:3000` otherwise.
 
 ## Tech stack
 
@@ -86,7 +88,7 @@ e2e/                      # Playwright specs
 
 ## Testing
 
-- **Unit and component tests (`npm test`, 38 tests):** form validation rules, formatting helpers, `MenuContext`, Header behaviour (toggle, Escape, focus trap, link close), the contact form flows (errors, sending, success, reset, failure) and the data hooks.
+- **Unit and component tests (`npm test`, 41 tests):** form validation rules, formatting and site URL helpers, `MenuContext`, Header behaviour (toggle, Escape, focus trap, link close), the contact form flows (errors, sending, success, reset, failure) and the data hooks.
 - **End-to-end tests (`npm run test:e2e`):** run against the production build at 402, 768 and 1280 px. They check that every section renders without console errors, that there is no horizontal scroll, image alt text, the skip link, reduced motion, the mobile and desktop navigation, and the contact form flows.
 
 ## Checks before submission
@@ -97,7 +99,7 @@ All of these pass on the final commit:
 | --- | --- | --- |
 | Type check | `npx tsc --noEmit` | No errors |
 | Lint | `npm run lint` | No errors or warnings |
-| Unit and component tests | `npm test` | 38 passed |
+| Unit and component tests | `npm test` | 41 passed |
 | End-to-end tests | `npm run test:e2e` | 31 passed (5 skipped on purpose: mobile-menu tests skip on desktop and vice versa) |
 | Production build | `npm run build` | Succeeds; the page is statically prerendered |
 | Manual review | Browser at 402, 768, 1024 and 1280 px | Compared against the Figma frames; no horizontal scroll |
