@@ -12,7 +12,7 @@ interface SectionHeadingProps {
 
 export function SectionHeading({ id, eyebrow, title, description, align = "left", className }: SectionHeadingProps) {
   return (
-    <div className={cn("flex max-w-[560px] flex-col", align === "center" && "mx-auto items-center text-center", className)}>
+    <div className={cn("flex flex-col", align === "center" && "mx-auto items-center text-center", className)}>
       <Eyebrow>{eyebrow}</Eyebrow>
       <h2 id={id} className="mt-4 font-display text-h2-sm font-extrabold text-ink lg:text-h2">
         {title}

@@ -8,7 +8,7 @@ export function Categories() {
   return (
     <section id={sectionId} aria-labelledby={titleId} className="bg-white py-15 lg:py-25">
       <Container>
-        <SectionHeading id={titleId} {...heading} />
+        <SectionHeading id={titleId} {...heading} className="max-w-[560px]" />
 
         <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:mt-10 lg:gap-5 xl:grid-cols-4">
           {cards.map(({ slug, ...card }) => (
