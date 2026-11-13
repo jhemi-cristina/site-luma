@@ -12,18 +12,18 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-surface">
-      <Container className="flex h-[68px] items-center justify-between md:grid md:h-[69px] md:grid-cols-[1fr_auto_1fr]">
+      <Container className="flex h-[68px] items-center justify-between lg:grid lg:h-[69px] lg:grid-cols-[1fr_auto_1fr]">
         <Logo onClick={closeMenu} />
 
-        <DesktopNav links={links} className="hidden md:block" />
-        <HeaderActions actions={actions} className="hidden justify-self-end md:flex" />
+        <DesktopNav links={links} className="hidden lg:block" />
+        <HeaderActions actions={actions} className="hidden justify-self-end lg:flex" />
 
         <MenuToggle
           ref={toggleRef}
           isOpen={isMenuOpen}
           controlsId={menuId}
           onToggle={toggleMenu}
-          className="-mr-1.5 md:hidden"
+          className="-mr-1.5 lg:hidden"
         />
       </Container>
 

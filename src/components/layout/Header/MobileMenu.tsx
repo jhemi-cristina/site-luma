@@ -15,7 +15,7 @@ export function MobileMenu({ id, isOpen, links, actions, onNavigate }: MobileMen
     <div
       id={id}
       hidden={!isOpen}
-      className="fixed inset-x-0 top-[69px] bottom-0 overflow-y-auto bg-surface motion-safe:animate-fade-in md:hidden"
+      className="fixed inset-x-0 top-[69px] bottom-0 overflow-y-auto bg-surface motion-safe:animate-fade-in lg:hidden"
     >
       <Container className="flex flex-col gap-8 py-6">
         <nav aria-label="Mobile">

@@ -4,7 +4,7 @@ import { createContext, useCallback, useContext, useMemo, useState, type ReactNo
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
-const DESKTOP_QUERY = "(min-width: 48rem)";
+const DESKTOP_QUERY = "(min-width: 64rem)";
 
 interface MenuContextValue {
   isOpen: boolean;
