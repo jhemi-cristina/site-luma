@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { peopleData, type CollageColumn, type CollagePhoto } from "@/data/people";
+import { peopleData, type CollageColumn, type CollagePhoto, type TileSize } from "@/data/people";
 
 type SizeVariables = CSSProperties & Record<`--${string}`, string>;
 
@@ -10,6 +10,14 @@ function toPhotoStyle({ mobile, desktop }: CollagePhoto): SizeVariables {
     "--w-lg": `${desktop.width}px`,
     "--h-lg": `${desktop.height}px`,
   };
+}
+
+function coverWidth(tile: TileSize, source: TileSize): number {
+  return Math.ceil(Math.max(tile.width, tile.height * (source.width / source.height)));
+}
+
+function toPhotoSizes({ source, mobile, desktop }: CollagePhoto): string {
+  return `(min-width: 768px) ${coverWidth(desktop, source)}px, ${coverWidth(mobile, source)}px`;
 }
 
 function toColumnStyle({ offset }: CollageColumn): SizeVariables {
@@ -35,6 +43,7 @@ export function usePeople() {
         alt: photo.alt,
         width: photo.desktop.width,
         height: photo.desktop.height,
+        sizes: toPhotoSizes(photo),
         style: toPhotoStyle(photo),
       })),
     })),

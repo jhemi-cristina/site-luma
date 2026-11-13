@@ -34,7 +34,7 @@ export function PeopleCollage({ columns, className }: PeopleCollageProps) {
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                sizes="(min-width: 768px) 320px, 200px"
+                sizes={photo.sizes}
                 className="object-cover"
               />
             </li>

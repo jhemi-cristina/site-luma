@@ -14,7 +14,7 @@ export function FeaturedCourseMedia({ badge, image, className }: FeaturedCourseM
           src={image.src}
           alt={image.alt}
           fill
-          sizes="(min-width: 1280px) 530px, (min-width: 1024px) 50vw, 100vw"
+          sizes="(min-width: 1280px) 530px, (min-width: 1024px) 50vw, (min-width: 768px) calc(100vw - 80px), calc(100vw - 40px)"
           className="object-cover"
         />
       </div>
