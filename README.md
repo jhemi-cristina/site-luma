@@ -127,7 +127,7 @@ All of these pass on the final commit:
 
 ## Time spent
 
-About **8 hours**, including studying the design, implementation, responsive and accessibility review, performance tuning, tests and documentation.
+About **12 hours**, including studying the design, implementation, responsive and accessibility review, performance tuning, tests and documentation.
 
 ## AI tools
 
