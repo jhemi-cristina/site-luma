@@ -89,6 +89,20 @@ e2e/                      # Playwright specs
 - **Unit and component tests (`npm test`, 38 tests):** form validation rules, formatting helpers, `MenuContext`, Header behaviour (toggle, Escape, focus trap, link close), the contact form flows (errors, sending, success, reset, failure) and the data hooks.
 - **End-to-end tests (`npm run test:e2e`):** run against the production build at 402, 768 and 1280 px. They check that every section renders without console errors, that there is no horizontal scroll, image alt text, the skip link, reduced motion, the mobile and desktop navigation, and the contact form flows.
 
+## Checks before submission
+
+All of these pass on the final commit:
+
+| Check | Command | Result |
+| --- | --- | --- |
+| Type check | `npx tsc --noEmit` | No errors |
+| Lint | `npm run lint` | No errors or warnings |
+| Unit and component tests | `npm test` | 38 passed |
+| End-to-end tests | `npm run test:e2e` | 31 passed (5 skipped on purpose: mobile-menu tests skip on desktop and vice versa) |
+| Production build | `npm run build` | Succeeds; the page is statically prerendered |
+| Manual review | Browser at 402, 768, 1024 and 1280 px | Compared against the Figma frames; no horizontal scroll |
+| Lighthouse | Production build, mobile and desktop | 100 in all four categories |
+
 ## Key decisions
 
 - **Tablet layouts.** The design only has 402 px and 1280 px frames, so I designed the tablet range: section-specific two- or three-column layouts at 768 px, and the desktop navigation from 1024 px (it was cramped at 768 px).
