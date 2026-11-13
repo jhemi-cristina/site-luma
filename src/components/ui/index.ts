@@ -4,5 +4,6 @@ export { Container } from "./Container";
 export { Eyebrow } from "./Eyebrow";
 export { FloatingCard } from "./FloatingCard";
 export { Logo } from "./Logo";
+export { SectionHeading } from "./SectionHeading";
 export { SkipLink } from "./SkipLink";
 export { StarRating } from "./StarRating";
