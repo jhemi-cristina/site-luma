@@ -22,6 +22,7 @@ test.describe("home page", () => {
 
     await expect(page).toHaveTitle("Luma — Practical courses that move you forward");
     await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /Practical courses/);
+    await expect(page.locator('link[rel="icon"][type="image/svg+xml"]')).toHaveAttribute("href", /icon\.svg/);
     await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
 
     for (const heading of SECTION_HEADINGS) {
