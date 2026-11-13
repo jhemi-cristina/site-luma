@@ -11,10 +11,13 @@ const FOCUSABLE_SELECTOR = [
   "[tabindex]:not([tabindex='-1'])",
 ].join(",");
 
+function isVisible(element: HTMLElement) {
+  if (element.closest("[hidden]")) return false;
+  return typeof element.checkVisibility === "function" ? element.checkVisibility() : true;
+}
+
 function getFocusableElements(container: HTMLElement) {
-  return [...container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)].filter(
-    (element) => !element.closest("[hidden]") && element.getClientRects().length > 0,
-  );
+  return [...container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)].filter(isVisible);
 }
 
 export function useFocusTrap(containerRef: RefObject<HTMLElement | null>, active: boolean) {
