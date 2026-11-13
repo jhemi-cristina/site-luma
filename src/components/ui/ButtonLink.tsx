@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/cn";
 import type { ButtonVariant } from "@/types/content";
 
-type ButtonSize = "compact" | "md" | "lg";
+type ButtonSize = "compact" | "md" | "lg" | "lg-tight";
 
 interface ButtonLinkProps extends ComponentPropsWithoutRef<typeof Link> {
   variant?: ButtonVariant;
@@ -12,15 +12,18 @@ interface ButtonLinkProps extends ComponentPropsWithoutRef<typeof Link> {
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: "bg-primary text-white hover:bg-primary-hover",
-  secondary: "border border-line bg-white text-ink hover:border-ink/30 hover:bg-surface",
-  ghost: "font-normal text-muted hover:text-ink",
+  primary: "bg-primary text-white hover:bg-primary-hover focus-visible:outline-primary",
+  secondary: "border border-line bg-white text-ink hover:border-ink/30 hover:bg-surface focus-visible:outline-primary",
+  ghost: "font-normal text-muted hover:text-ink focus-visible:outline-primary",
+  accent: "bg-star text-ink hover:bg-star-hover focus-visible:outline-white",
+  "inverse-ghost": "gap-2 text-on-primary-muted hover:text-white focus-visible:outline-white",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
   compact: "px-4 py-2.5",
   md: "px-5 py-2.5",
   lg: "px-7 py-3.5",
+  "lg-tight": "px-4 py-3.5",
 };
 
 export function ButtonLink({
@@ -34,7 +37,7 @@ export function ButtonLink({
     <Link
       className={cn(
         "inline-flex items-center justify-center rounded-lg text-body font-bold whitespace-nowrap",
-        "transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+        "transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2",
         variantClasses[variant],
         sizeClasses[size],
         fullWidth && "w-full",
