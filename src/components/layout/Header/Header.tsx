@@ -8,10 +8,10 @@ import { MobileMenu } from "./MobileMenu";
 import { useHeader } from "./useHeader";
 
 export function Header() {
-  const { links, actions, menuId, toggleRef, isMenuOpen, toggleMenu, closeMenu } = useHeader();
+  const { links, actions, menuId, headerRef, toggleRef, isMenuOpen, toggleMenu, closeMenu } = useHeader();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-surface">
+    <header ref={headerRef} className="sticky top-0 z-50 border-b border-line bg-surface">
       <Container className="flex h-[68px] items-center justify-between lg:grid lg:h-[69px] lg:grid-cols-[1fr_auto_1fr]">
         <Logo onClick={closeMenu} />
 
